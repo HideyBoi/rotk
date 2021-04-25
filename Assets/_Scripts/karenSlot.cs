@@ -6,9 +6,14 @@ public class karenSlot : MonoBehaviour
 {
     
     public GameObject karenPrefab; 
-    public bool noKaren;
     public GameObject karen;
-    
+
+    public float karenTime;
+
+    public float maxTime;
+    public float minTime;
+
+    public bool isTimeSet;
 
     void Start()
     {
@@ -17,20 +22,25 @@ public class karenSlot : MonoBehaviour
     
     void Update()
     {
-        if(karen != null)
+        karenTime -= Time.deltaTime;
+
+        if (karen == null && karenTime < 0 && !isTimeSet)
         {
-            noKaren = true;
-        } 
-        else
-        {
-            noKaren = false;
+            karenTime = Random.Range(minTime, maxTime);
+            isTimeSet = true;
         }
 
-        if (!noKaren)
+        if (karen == null && karenTime < 0 && isTimeSet)
+        {
+            karen = Instantiate(karenPrefab, transform.position, transform.rotation);
+            isTimeSet = false;
+        }
+        
+        /*
+        if (karen == null)
         {
             karen = Instantiate(karenPrefab, transform.position, transform.rotation);
         }
+        */
     }       
-        
-
 }

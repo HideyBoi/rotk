@@ -21,9 +21,8 @@ public class product : MonoBehaviour
     
     void Awake()
     {
-        itemName = itemData.itemName;
-        coll.size = itemData.collBounds;
-        sprite.sprite = itemData.itemSprite;
+        if (itemData != null)
+            InitializeData();
 
         spriteGameO = transform.Find("Sprite");
         sprite = spriteGameO.gameObject.GetComponent<SpriteRenderer>();
@@ -32,6 +31,9 @@ public class product : MonoBehaviour
 
     void Update()
     {
+        if (Player == null)
+            return;
+        
         if(Player.transform.position.y > transform.position.y)
         {
             sprite.sortingOrder = 11;
@@ -48,5 +50,12 @@ public class product : MonoBehaviour
         {
             coll.enabled = true;
         }
+    }
+
+    public void InitializeData()
+    {
+        itemName = itemData.itemName;
+        coll.size = itemData.collBounds;
+        sprite.sprite = itemData.itemSprite;
     }
 }

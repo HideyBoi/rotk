@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class itemAccept : MonoBehaviour
 {
     public GameObject Karen;
+    public GameObject itemPrefab;
 
     public ratingManager rm;
     public GameObject wrongEffectPrefab;
@@ -76,6 +77,7 @@ public class itemAccept : MonoBehaviour
     {
         Instantiate(wrongEffectPrefab, transform.position, Quaternion.identity);
         rm.rating -= 2;
+        RespawnItem();
         Destroy(Karen);
     }
 
@@ -83,6 +85,24 @@ public class itemAccept : MonoBehaviour
     {
         Instantiate(correctEffectPrefab, transform.position, Quaternion.identity);
         rm.rating += 1;
+        RespawnItem();
         Destroy(Karen);
+    }
+
+    void RespawnItem()
+    {
+        Vector3 itemPos = Vector3.zero;
+
+        for (int i = 0; i < selectedItem.scene.Length; i++)
+        {
+            if (selectedItem.scene[i].sceneName == SceneManager.GetActiveScene().name)
+            {
+                itemPos = selectedItem.scene[i].spawnPos;
+            }
+        }
+
+        GameObject item = Instantiate(itemPrefab, itemPos, Quaternion.identity);
+        item.GetComponent<product>().itemData = selectedItem;
+        item.GetComponent<product>().InitializeData();
     }
 }

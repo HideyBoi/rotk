@@ -16,6 +16,6 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: d4d92583ec4be8243b5646a7db9fb8ca, type: 3}
   collBounds: {x: 0.3, y: 0.3}
   scene:
-  - sceneName: stage-1
-    spawnPos: {x: 0, y: 0, z: 0}
+  - sceneName: stage01
+    spawnPos: {x: 8, y: 0, z: 0}
     time: 30
