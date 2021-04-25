@@ -21,6 +21,9 @@ public class spriteOrder : MonoBehaviour
     
     void Update()
     {
+        if (Player == null)
+            return;
+
         if(Player.transform.position.y > transform.position.y)
         {
             sprite.sortingOrder = 11;

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class product : MonoBehaviour
 {
-    public GameObject Player;
+    public Item itemData;
 
-    public GameObject popUpInfo;
+    [Header("Sprite Ordering")]
+    public GameObject Player;
     public SpriteRenderer sprite;
     public Transform spriteGameO;
     public Transform Hand;
     public bool holding;
 
+    [Header("Item Data")]
     public string itemName;
 
     public BoxCollider2D coll;
@@ -19,6 +21,10 @@ public class product : MonoBehaviour
     
     void Awake()
     {
+        itemName = itemData.itemName;
+        coll.size = itemData.collBounds;
+        sprite.sprite = itemData.itemSprite;
+
         spriteGameO = transform.Find("Sprite");
         sprite = spriteGameO.gameObject.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");

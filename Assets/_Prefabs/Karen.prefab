@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2576410850876134007}
   - component: {fileID: 6386128697484819982}
   - component: {fileID: 4497439729437363338}
-  - component: {fileID: 2818810165391709386}
   m_Layer: 8
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -61,6 +60,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -86,13 +86,12 @@ MonoBehaviour:
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_outlineColor:
-    serializedVersion: 2
-    rgba: 4278190080
   m_fontSize: 0.3
   m_fontSizeBase: 0.3
   m_fontWeight: 400
@@ -100,7 +99,9 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 1026
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -110,10 +111,8 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 3
-  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
-  m_isLinkedTextComponent: 0
-  m_isTextTruncated: 0
+  parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -121,57 +120,20 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_ignoreRectMaskCulling: 0
-  m_ignoreCulling: 1
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 1
-  m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_textInfo:
-    textComponent: {fileID: 4497439729437363338}
-    characterCount: 2
-    spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
-    linkCount: 0
-    lineCount: 1
-    pageCount: 1
-    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
-  m_subTextObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2818810165391709386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4666922459920778867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e47aa8480974748b915903153a8b9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeLeft: 30
-  ItemAccept: {fileID: 6009152377718600608}
-  tmp: {fileID: 4497439729437363338}
 --- !u!1 &6009152376231853878
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +218,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 100
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6009152376231853872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +286,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -370,12 +334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397bfaaa422349a47bf43ac1ed62388b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite0: {fileID: 21300000, guid: 62f0fcaf8d71b8e4c885657703c34d24, type: 3}
-  sprite1: {fileID: 21300000, guid: 76a12a45489a3ef43be51598ae53d33d, type: 3}
-  sprite2: {fileID: 21300000, guid: f96c92e6063da9147838303dde6a287a, type: 3}
-  sprite3: {fileID: 21300000, guid: 2b9f59801ee02914c864aae9b78b03e4, type: 3}
+  sprite:
+  - {fileID: 21300000, guid: 62f0fcaf8d71b8e4c885657703c34d24, type: 3}
+  - {fileID: 21300000, guid: 76a12a45489a3ef43be51598ae53d33d, type: 3}
+  - {fileID: 21300000, guid: f96c92e6063da9147838303dde6a287a, type: 3}
+  - {fileID: 21300000, guid: 2b9f59801ee02914c864aae9b78b03e4, type: 3}
   image: {fileID: 6009152376307941081}
-  RNG: 0
 --- !u!61 &884375156375410020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -413,7 +377,6 @@ GameObject:
   - component: {fileID: 6009152377501661496}
   - component: {fileID: 6009152377501661498}
   - component: {fileID: 6009152377501661497}
-  - component: {fileID: 6009152377501661499}
   m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -463,6 +426,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -490,13 +454,12 @@ MonoBehaviour:
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_outlineColor:
-    serializedVersion: 2
-    rgba: 4278190080
   m_fontSize: 0.3
   m_fontSizeBase: 0.3
   m_fontWeight: 400
@@ -504,7 +467,9 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 1026
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -514,10 +479,8 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 12
   m_linkedTextComponent: {fileID: 0}
-  m_isLinkedTextComponent: 0
-  m_isTextTruncated: 0
+  parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -525,56 +488,20 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_ignoreRectMaskCulling: 0
-  m_ignoreCulling: 1
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 1
-  m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_textInfo:
-    textComponent: {fileID: 6009152377501661497}
-    characterCount: 27
-    spriteCount: 0
-    spaceCount: 6
-    wordCount: 6
-    linkCount: 0
-    lineCount: 2
-    pageCount: 1
-    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
   m_hasFontAssetChanged: 0
-  m_subTextObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6009152377501661499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6009152377501661503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfb1fb9da4b0db4ebdd8781394a4a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Karen: {fileID: 6009152377718600608}
-  text: {fileID: 6009152377501661497}
 --- !u!1 &6009152377718600612
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +550,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -670,57 +598,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42e89a2bfc216240a732044c3c17c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RNG: 0
-  productPrefab: {fileID: 0}
-  spawn: {fileID: 0}
-  Tag: 
-  productName: 
-  ratings: {fileID: 0}
+  Karen: {fileID: 6009152376307941087}
   rm: {fileID: 0}
   wrongEffectPrefab: {fileID: 7613155045099402487, guid: 3c8fc1b43b709824493e99db6d3aad54,
     type: 3}
   correctEffectPrefab: {fileID: 235260685514772669, guid: 0443ff63538623642a289065a1bde990,
     type: 3}
-  product0Tag: Box
-  p0Spawner: BoxSpawn
-  product0Name: Cereal
-  prefab0: {fileID: 7091969275278459903, guid: 468666e877737e9479c6af01ae77315a, type: 3}
-  product1Tag: Cola
-  p1Spawner: ColaSpawn
-  product1Name: Cola
-  prefab1: {fileID: 4126769858536417361, guid: 85c831f8a5891d34c95ed2b0c610c50b, type: 3}
-  product2Tag: Phone/Tablet
-  p2Spawner: PhoneSpawner
-  product2Name: Phone
-  prefab2: {fileID: 2586274506846906809, guid: d2c60d588451cef44aeb947fec10ee16, type: 3}
-  product3Tag: HandS
-  p3Spawner: HandSSpawner
-  product3Name: Hand Sanitizer
-  prefab3: {fileID: 1594214313423998048, guid: 243ce1caa52335b489761df505763dc5, type: 3}
-  product4Tag: Perfume
-  p4Spawner: PerfumeSpawn
-  product4Name: Perfume
-  prefab4: {fileID: 8773906647387625003, guid: 9434dad6bf9a6744982042a0ea581257, type: 3}
-  product5Tag: Shirt
-  p5Spawner: ShirtSpawner
-  product5Name: Clothes
-  prefab5: {fileID: 4853596240046782087, guid: f93510b74311dce4495699f36ab73142, type: 3}
-  product6Tag: Alcohol
-  p6Spawner: AlcoholSpawner
-  product6Name: Beer
-  prefab6: {fileID: 3646494228298927858, guid: 54e4e3d970b3ddd48ba28575bf6e3174, type: 3}
-  product7Tag: Grape Juice
-  p7Spawner: GJSpawner
-  product7Name: Grape Juice
-  prefab7: {fileID: 2073869987364807861, guid: b296ce3b1f4e3e644b548a6096760cc3, type: 3}
-  product8Tag: Shampoo
-  p8Spawner: SSpawner
-  product8Name: Shampoo
-  prefab8: {fileID: 1704950812080726741, guid: 0f13486284c5c2f4bbccded8f832b0f0, type: 3}
-  product9Tag: EOils
-  p9Spawner: EOilSpawner
-  product9Name: Essential Oils
-  prefab9: {fileID: 7429562778537188973, guid: 662ab01d293ab4449b95456708591436, type: 3}
+  items:
+  - {fileID: 11400000, guid: 277597211dbd1e543abd4061799154b1, type: 2}
+  - {fileID: 11400000, guid: b876fb547c4d80649bc572bc0af0183e, type: 2}
+  selectedItem: {fileID: 0}
+  timeTex: {fileID: 4497439729437363338}
+  time: 0
+  itemName: {fileID: 6009152377501661497}
+  ItemName: 
 --- !u!61 &6009152377718600615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -793,6 +684,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
