@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f8f1c116d475741a600e80373ee3d8, type: 3}
+  m_Name: Alcohol
+  m_EditorClassIdentifier: 
+  itemName: Alcohol
+  itemSprite: {fileID: 21300000, guid: d4d92583ec4be8243b5646a7db9fb8ca, type: 3}
+  collBounds: {x: 0.3, y: 0.3}
+  scene:
+  - sceneName: stage01
+    spawnPos: {x: -16.75, y: 1.25, z: 0}
+    time: 15
+    score: 3

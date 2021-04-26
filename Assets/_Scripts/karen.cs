@@ -10,8 +10,6 @@ public class karen : MonoBehaviour
     void Awake()
     { 
         int RNG = Random.Range(0, 4);
-
         image.sprite = sprite[RNG];
     }
-   
 }

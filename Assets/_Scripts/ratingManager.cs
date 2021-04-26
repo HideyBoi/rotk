@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using GameJolt;
+using UnityEngine.SceneManagement;
 
 public class ratingManager : MonoBehaviour
 {
@@ -29,5 +30,20 @@ public class ratingManager : MonoBehaviour
 
         HS.text = HighScore.ToString();
         S.text = score.ToString();
+    }
+
+    public void ChangeRating(int multiplier, Item itemData)
+    {
+        int toChange = 0;
+
+        for (int i = 0; i < itemData.scene.Length; i++)
+        {
+            if (itemData.scene[i].sceneName == SceneManager.GetActiveScene().name)
+            {
+                toChange = itemData.scene[i].score * multiplier;
+            }
+        }
+
+        rating += toChange;
     }
 }

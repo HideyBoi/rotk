@@ -607,9 +607,16 @@ MonoBehaviour:
   correctEffectPrefab: {fileID: 235260685514772669, guid: 0443ff63538623642a289065a1bde990,
     type: 3}
   items:
+  - {fileID: 11400000, guid: 92ef18b4633ac524e859a28e77639157, type: 2}
   - {fileID: 11400000, guid: 277597211dbd1e543abd4061799154b1, type: 2}
-  - {fileID: 11400000, guid: b876fb547c4d80649bc572bc0af0183e, type: 2}
   - {fileID: 11400000, guid: 6f66f7db922b404479397f8dfcf13fa7, type: 2}
+  - {fileID: 11400000, guid: 8850bce575185fa479b6b4d4fc1f36b9, type: 2}
+  - {fileID: 11400000, guid: 37a11297821383d479bb4d772c1ac6fd, type: 2}
+  - {fileID: 11400000, guid: d5d4a4c515bcf1e4c8eb360a3b259eff, type: 2}
+  - {fileID: 11400000, guid: c3f13a34152539240988543d0fdae72a, type: 2}
+  - {fileID: 11400000, guid: b876fb547c4d80649bc572bc0af0183e, type: 2}
+  - {fileID: 11400000, guid: 9d694c8ca98f8804bb6390e0ce82dc65, type: 2}
+  - {fileID: 11400000, guid: b5e514e41bc4af64c970af5b3153b276, type: 2}
   selectedItem: {fileID: 0}
   timeTex: {fileID: 4497439729437363338}
   time: 0

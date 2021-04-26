@@ -8,4 +8,5 @@ public class ItemScene
     public string sceneName;
     public Vector3 spawnPos;
     public float time;
+    public int score;
 }
