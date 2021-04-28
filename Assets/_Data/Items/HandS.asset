@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Hand Sanitizer
   itemSprite: {fileID: 21300000, guid: 4328822fbbdaf5a43b508b372197a186, type: 3}
   collBounds: {x: 0.4, y: 0.2}
+  aimCollBounds: {x: 0.37, y: 0.85}
   scene:
   - sceneName: stage01
     spawnPos: {x: -9, y: 3.5, z: 0}

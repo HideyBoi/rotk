@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Clothing
   itemSprite: {fileID: 21300000, guid: 4b64f027b5fe01b43911d1ba825bde94, type: 3}
   collBounds: {x: 0.5, y: 0.1}
+  aimCollBounds: {x: 0.37, y: 0.63}
   scene:
   - sceneName: stage01
     spawnPos: {x: 13.5, y: -0.25, z: 0}

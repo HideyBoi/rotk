@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class product : MonoBehaviour
 {
@@ -18,14 +19,17 @@ public class product : MonoBehaviour
 
     public BoxCollider2D coll;
 
+    public BoxCollider2D aimColl;
+
+    [Header("Tooltips")]
+    public TextMeshProUGUI itemNameText;
+
     
     void Awake()
     {
         if (itemData != null)
             InitializeData();
 
-        spriteGameO = transform.Find("Sprite");
-        sprite = spriteGameO.gameObject.GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Player");
     }
 
@@ -44,11 +48,13 @@ public class product : MonoBehaviour
 
         if (holding)
         {
-            transform.position = Hand.position;
+            transform.parent.position = Hand.position;
             coll.enabled = false;
+            aimColl.enabled = false;
         } else
         {
             coll.enabled = true;
+            aimColl.enabled = true;
         }
     }
 
@@ -56,6 +62,10 @@ public class product : MonoBehaviour
     {
         itemName = itemData.itemName;
         coll.size = itemData.collBounds;
+        aimColl.size = itemData.aimCollBounds;
+        aimColl.offset = Vector2.up * itemData.aimCollBounds.y / 2;
         sprite.sprite = itemData.itemSprite;
+
+        itemNameText.text = itemData.itemName;
     }
 }

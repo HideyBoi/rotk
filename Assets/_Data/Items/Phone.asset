@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Phone
   itemSprite: {fileID: 21300000, guid: 2d124895dac7b4249a55cbcfc974b38f, type: 3}
-  collBounds: {x: 0.4, y: 0.1}
+  collBounds: {x: 0.6, y: 0.1}
+  aimCollBounds: {x: 0.63, y: 1}
   scene:
   - sceneName: stage01
     spawnPos: {x: 0, y: 0, z: 0}

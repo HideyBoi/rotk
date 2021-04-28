@@ -8,5 +8,6 @@ public class Item : ScriptableObject
     public string itemName;
     public Sprite itemSprite;
     public Vector2 collBounds;
+    public Vector2 aimCollBounds;
     public ItemScene[] scene;
 }

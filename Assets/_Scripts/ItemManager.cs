@@ -16,35 +16,14 @@ public class ItemManager : MonoBehaviour
     public product currentHold;
     public product lastP;
     public product p;
+    public Aimable lastAim;
+    public Aimable aimable;
 
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, aimDir, Color.red, 1f);
+        Debug.DrawRay(transform.position, aimDir, Color.red, 0.2f);
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, aimDist, AimMask);
-
-        
-
-        if (hit.collider == null)
-        {
-            p = null;
-        } else
-        {
-            p = hit.collider.GetComponent<product>();
-        }
-
-        if (lastP != p)
-        {
-            if (lastP != null)
-                lastP.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.white;
-        }
-
-        if (hit.collider == null)
-            return;
-
-        lastP = p;
-
-        p.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.cyan;
+        AimAt();
     }
 
     void Awake()
@@ -56,6 +35,33 @@ public class ItemManager : MonoBehaviour
         controls.Player.AimGamepad.canceled += ctx => Aim(ctx.ReadValue<Vector2>(), false);
 
         controls.Player.Pickup.performed += _ => Pickup();
+    }
+
+    public void AimAt()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, aimDist, AimMask);
+
+        if (hit.collider == null)
+        {
+            aimable = null;
+        }
+        else
+        {
+            aimable = hit.collider.GetComponent<Aimable>();
+        }
+
+        if (lastAim != aimable)
+        {
+            if (lastAim != null)
+                lastAim.OnStopAim();
+        }
+
+        if (hit.collider == null)
+            return;
+
+        lastAim = aimable;
+
+        aimable.OnAim();
     }
 
     void Aim(Vector2 pos, bool isMouse)

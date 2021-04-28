@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cereal
   itemSprite: {fileID: 21300000, guid: 5640314f86b95f24eb50143263e07073, type: 3}
-  collBounds: {x: 0.8, y: 0.2}
+  collBounds: {x: 0.7, y: 0.2}
+  aimCollBounds: {x: 0.7, y: 1}
   scene:
   - sceneName: stage01
     spawnPos: {x: -13, y: -2.25, z: 0}

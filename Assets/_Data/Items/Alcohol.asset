@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Alcohol
   itemSprite: {fileID: 21300000, guid: d4d92583ec4be8243b5646a7db9fb8ca, type: 3}
   collBounds: {x: 0.3, y: 0.3}
+  aimCollBounds: {x: 0.31, y: 1}
   scene:
   - sceneName: stage01
     spawnPos: {x: -16.75, y: 1.25, z: 0}

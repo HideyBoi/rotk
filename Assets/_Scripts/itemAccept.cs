@@ -41,7 +41,7 @@ public class itemAccept : MonoBehaviour
         if (time < 0)
         {
             Debug.Log("Out of time!");
-            Wrong();
+            Wrong(false);
         }
     }
 
@@ -52,26 +52,26 @@ public class itemAccept : MonoBehaviour
 
         if (other.CompareTag("Item"))
         {
-            if (ItemName == other.GetComponent<product>().itemData.itemName)
+            if (ItemName == other.transform.Find("ItemAim").GetComponent<product>().itemData.itemName)
             {
                 Correct();
                 Debug.Log("Correct Item!");
                 Destroy(other.gameObject);
             } else
             {
-                Wrong();
+                Wrong(true);
                 Debug.Log("Wrong Item!");
                 Destroy(other.gameObject);
             }
         }
     }
 
-    void Wrong()
+    void Wrong(bool spawnItem)
     {
         Instantiate(wrongEffectPrefab, transform.position, Quaternion.identity);
         rm.ChangeRating(-1, selectedItem);
-        RespawnItem();
-        Destroy(Karen);
+        if (spawnItem)
+        { RespawnItem(); } else { Destroy(Karen); }       
     }
 
     void Correct()
@@ -79,7 +79,6 @@ public class itemAccept : MonoBehaviour
         Instantiate(correctEffectPrefab, transform.position, Quaternion.identity);
         rm.ChangeRating(1, selectedItem);
         RespawnItem();
-        Destroy(Karen);
     }
 
     void RespawnItem()
@@ -95,8 +94,10 @@ public class itemAccept : MonoBehaviour
         }
 
         GameObject item = Instantiate(itemPrefab, itemPos, Quaternion.identity);
-        item.GetComponent<product>().itemData = selectedItem;
-        item.GetComponent<product>().InitializeData();
+        item.transform.Find("ItemAim").GetComponent<product>().itemData = selectedItem;
+        item.transform.Find("ItemAim").GetComponent<product>().InitializeData();
+
+        Destroy(Karen);
     }
 
     void GetRandomItem()

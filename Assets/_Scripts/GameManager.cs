@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
                 if (avaliableItems[i].scene[ii].sceneName == SceneManager.GetActiveScene().name)
                 {
                     GameObject item = Instantiate(itemPrefab, avaliableItems[i].scene[ii].spawnPos, Quaternion.identity);
-                    item.GetComponent<product>().itemData = avaliableItems[i];
-                    item.GetComponent<product>().InitializeData();
+                    item.transform.Find("ItemAim").GetComponent<product>().itemData = avaliableItems[i];
+                    item.transform.Find("ItemAim").GetComponent<product>().InitializeData();
                 }
             }
         }

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Essential Oils
   itemSprite: {fileID: 21300000, guid: 80a5188ba2b68354981cc7dc726be4f3, type: 3}
   collBounds: {x: 0.4, y: 0.2}
+  aimCollBounds: {x: 0.82, y: 0.5}
   scene:
   - sceneName: stage01
     spawnPos: {x: 9, y: 3.5, z: 0}
