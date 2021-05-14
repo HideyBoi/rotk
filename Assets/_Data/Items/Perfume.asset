@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Perfume
   m_EditorClassIdentifier: 
   itemName: Perfume
-  itemSprite: {fileID: 21300000, guid: dc372af7a31120542bc9d77da7edf005, type: 3}
   collBounds: {x: 0.4, y: 0.2}
   aimCollBounds: {x: 0.37, y: 0.85}
   scene:
-  - sceneName: stage01
+  - itemSprite: {fileID: 21300000, guid: dc372af7a31120542bc9d77da7edf005, type: 3}
+    sceneName: stage01
     spawnPos: {x: -6.5, y: 3.5, z: 0}
     time: 35
-    score: 0
+    score: 3
+    incorrectScore: 4

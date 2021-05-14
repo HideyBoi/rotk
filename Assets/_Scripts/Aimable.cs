@@ -9,9 +9,10 @@ public class Aimable : MonoBehaviour
     public Material defaultMat;
     public Material outlineMat;
 
-    public void OnAim() 
+    public void OnAim(Vector2 point) 
     {
         GUI.SetActive(true);
+        GUI.transform.position = point;
         spriteRenderer.material = outlineMat;
     }
 

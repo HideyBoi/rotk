@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.92
 --- !u!114 &7402612855830431244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +607,18 @@ MonoBehaviour:
   HighScore: 0
   HS: {fileID: 7438368854628239477}
   S: {fileID: 7438368855741065094}
+  ratingGameover: '<i>Our store has recieved an extremely low rating, most of which
+    point to you being the primary source of frustration. Because of this, we have
+    decided to let you go.
+
+
+    <b>Have your stuff cleared out by Monday!</b></i>'
+  robberGameover: '<i>After looking at the security cam footage, it seems you did
+    nothing to stop the recent robbery. It should be no surprise to you that you''ve
+    been let go.
+
+
+    <b>Have your stuff cleared out by Monday.</b></i>'
 --- !u!1 &1395148766345246470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1172,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.92
 --- !u!114 &843413142846013103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4314665152213039856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1285,7 +1297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bee3e812db1f5554194c7d53ec825630, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

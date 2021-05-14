@@ -69,7 +69,8 @@ public class itemAccept : MonoBehaviour
     void Wrong(bool spawnItem)
     {
         Instantiate(wrongEffectPrefab, transform.position, Quaternion.identity);
-        rm.ChangeRating(-1, selectedItem);
+        rm.ChangeRating(false, selectedItem);
+        rm.ChangeScore(false, selectedItem);
         if (spawnItem)
         { RespawnItem(); } else { Destroy(Karen); }       
     }
@@ -77,7 +78,8 @@ public class itemAccept : MonoBehaviour
     void Correct()
     {
         Instantiate(correctEffectPrefab, transform.position, Quaternion.identity);
-        rm.ChangeRating(1, selectedItem);
+        rm.ChangeRating(true, selectedItem);
+        rm.ChangeScore(true, selectedItem);
         RespawnItem();
     }
 

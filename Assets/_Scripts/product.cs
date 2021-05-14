@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class product : MonoBehaviour
 {
     public Item itemData;
+    public int id;
+    public Stand host;
 
     [Header("Sprite Ordering")]
     public GameObject Player;
@@ -37,14 +40,6 @@ public class product : MonoBehaviour
     {
         if (Player == null)
             return;
-        
-        if(Player.transform.position.y > transform.position.y)
-        {
-            sprite.sortingOrder = 11;
-        } else
-        {
-            sprite.sortingOrder = 9;
-        }
 
         if (holding)
         {
@@ -64,8 +59,21 @@ public class product : MonoBehaviour
         coll.size = itemData.collBounds;
         aimColl.size = itemData.aimCollBounds;
         aimColl.offset = Vector2.up * itemData.aimCollBounds.y / 2;
-        sprite.sprite = itemData.itemSprite;
+        
+        for (int i = 0; i < itemData.scene.Length; i++)
+        {
+            if (itemData.scene[i].sceneName == SceneManager.GetActiveScene().name)
+            {
+                sprite.sprite = itemData.scene[i].itemSprite;
+            }
+        }
 
         itemNameText.text = itemData.itemName;
+    }
+
+    void OnDestroy()
+    {
+        if (host != null)   
+            host.items--;
     }
 }

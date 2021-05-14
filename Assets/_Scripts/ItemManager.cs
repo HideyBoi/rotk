@@ -7,6 +7,8 @@ public class ItemManager : MonoBehaviour
     private Controls controls;
 
     public Vector2 aimDir;
+    public Joystick joystick;
+    public GameObject button;
     public float aimDist = Mathf.Infinity;
     public LayerMask AimMask;
 
@@ -23,6 +25,12 @@ public class ItemManager : MonoBehaviour
     {
         Debug.DrawRay(transform.position, aimDir, Color.red, 0.2f);
 
+        #if UNITY_ANDROID
+            joystick.gameObject.SetActive(true);
+            button.SetActive(true);
+            Aim(Vector2.zero, false, true);
+        #endif
+
         AimAt();
     }
 
@@ -30,9 +38,9 @@ public class ItemManager : MonoBehaviour
     {
         controls = new Controls();
 
-        controls.Player.AimPointer.performed += ctx => Aim(ctx.ReadValue<Vector2>(), true); 
-        controls.Player.AimGamepad.performed += ctx => Aim(ctx.ReadValue<Vector2>(), false); 
-        controls.Player.AimGamepad.canceled += ctx => Aim(ctx.ReadValue<Vector2>(), false);
+        controls.Player.AimPointer.performed += ctx => Aim(ctx.ReadValue<Vector2>(), true, false); 
+        controls.Player.AimGamepad.performed += ctx => Aim(ctx.ReadValue<Vector2>(), false, false); 
+        controls.Player.AimGamepad.canceled += ctx => Aim(ctx.ReadValue<Vector2>(), false, false);
 
         controls.Player.Pickup.performed += _ => Pickup();
     }
@@ -61,22 +69,31 @@ public class ItemManager : MonoBehaviour
 
         lastAim = aimable;
 
-        aimable.OnAim();
+        aimable.OnAim(hit.point);
     }
 
-    void Aim(Vector2 pos, bool isMouse)
+    void Aim(Vector2 pos, bool isMouse, bool isTouch)
     {
-        aimDir = pos;
-
+        Debug.Log("AIM TICK! IS MOUSE?: " + isMouse);
+        if (isTouch)
+        {
+            if (joystick.Direction == Vector2.zero)
+                return;
+            aimDir = joystick.Direction;
+            Debug.Log("TOUCH AIM TICK!");
+        } else
+        {
+            aimDir = pos;
+        }
+        
         if (isMouse)
         {
             Vector2 worldPos = Camera.main.ScreenToWorldPoint(pos) - transform.position;
             aimDir = worldPos.normalized;
-        }
-            
+        }       
     }
 
-    void Pickup()
+    public void Pickup()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, aimDist, AimMask);
 
@@ -86,8 +103,21 @@ public class ItemManager : MonoBehaviour
         if (hit.collider == null)
         { Debug.Log("Missed!"); return; }
 
-        product p = hit.collider.GetComponent<product>();
+        if (hit.collider.GetComponent<product>() != null)
+        {
+            product p = hit.collider.GetComponent<product>();
+            PickupItem(p);
+        }
+        else
+        {
+            product p = hit.collider.GetComponent<product>();
+            Stand s = hit.collider.GetComponent<Stand>();
+            s.Interact(this);
+        }    
+    }
 
+    public void PickupItem(product p)
+    {
         p.Hand = pHand.transform;
         p.holding = true;
         holding = true;

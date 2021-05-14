@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4137732634195605484
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 80a5188ba2b68354981cc7dc726be4f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -305,6 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
+  id: 0
+  host: {fileID: 0}
   Player: {fileID: 0}
   sprite: {fileID: 6114763548695835712}
   spriteGameO: {fileID: 8337213874533479767}
@@ -368,6 +370,7 @@ GameObject:
   - component: {fileID: 2822858524165675426}
   - component: {fileID: 1879972225}
   - component: {fileID: 9091521957005742416}
+  - component: {fileID: 2054539560874269851}
   m_Layer: 0
   m_Name: Item
   m_TagString: Item
@@ -455,6 +458,20 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6114763548695835712}
   defaultMat: {fileID: 2100000, guid: 6b3a556889680184b96f4c188d489eb0, type: 2}
   outlineMat: {fileID: 2100000, guid: ff41094cebc300a45a159d6298b929f3, type: 2}
+--- !u!114 &2054539560874269851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646494228298927858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171d004b52aca044fadd448e76be20b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6114763548695835712}
+  onlyOnce: 0
 --- !u!1 &4462102119601748068
 GameObject:
   m_ObjectHideFlags: 0

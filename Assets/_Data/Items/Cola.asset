@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Cola
   m_EditorClassIdentifier: 
   itemName: Cola
-  itemSprite: {fileID: 21300000, guid: 170892cba8c740145a0e8ada3a9e6adb, type: 3}
   collBounds: {x: 0.2, y: 0.2}
   aimCollBounds: {x: 0.37, y: 0.65}
   scene:
-  - sceneName: stage01
+  - itemSprite: {fileID: 21300000, guid: 170892cba8c740145a0e8ada3a9e6adb, type: 3}
+    sceneName: stage01
     spawnPos: {x: -16.75, y: -2.25, z: 0}
     time: 18
     score: 3
+    incorrectScore: 3

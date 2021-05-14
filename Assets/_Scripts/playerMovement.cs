@@ -12,6 +12,9 @@ public class playerMovement : MonoBehaviour
     public float holding;
 
     public Vector2 moveDir;
+    public Joystick joystick;
+    public Vector2 lastTouchMoveDir;
+
 
 
     void Awake()
@@ -25,6 +28,14 @@ public class playerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        #if UNITY_ANDROID
+            joystick.gameObject.SetActive(true);
+            
+            if (joystick.Direction != lastTouchMoveDir)
+            { Move(joystick.Direction); lastTouchMoveDir = joystick.Direction; }
+            
+        #endif
+
         animator.SetFloat("Horizontal", moveDir.x);
         animator.SetFloat("Vertical", moveDir.y);
         animator.SetFloat("Speed", (moveDir * moveSpeed).sqrMagnitude);

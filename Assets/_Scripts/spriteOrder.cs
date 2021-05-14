@@ -1,35 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spriteOrder : MonoBehaviour
+public class SpriteOrder : MonoBehaviour
 {
-    
-    public GameObject Player;
-    public SpriteRenderer sprite;
-    public bool spriteRendererNeedsDefining = true;
+    public bool onlyOnce;
 
-    void Awake()
+    void LateUpdate()
     {
-        Player = GameObject.Find("Player");
-        if(spriteRendererNeedsDefining)
-        {
-            sprite = transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>();
-        }
-        
-    }
-    
-    void Update()
-    {
-        if (Player == null)
-            return;
-
-        if(Player.transform.position.y > transform.position.y)
-        {
-            sprite.sortingOrder = 11;
-        } else
-        {
-            sprite.sortingOrder = 9;
-        }
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        if (onlyOnce)
+            Destroy(this);
     }
 }
