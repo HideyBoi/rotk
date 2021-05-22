@@ -120,6 +120,11 @@ public class Stand : MonoBehaviour
             }
         }
 
+        if (currentSceneName == "tl1")
+        {
+            data = originalStandData.StandDatas[0];
+        }
+
         if (data == null)
             Debug.LogError("Stand data doesn't have an entry for this scene!");
 

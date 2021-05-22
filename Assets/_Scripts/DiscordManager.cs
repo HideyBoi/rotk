@@ -1,13 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DiscordManager : MonoBehaviour
 {
-    public Discord.Discord discord;
+#if UNITY_WINDOWS
+    private Discord.Discord discord;
+
+    public DiscordScene[] scenes;
 
     void Awake()
     {
+        string details = "[NOT SET]";
+
+        for (int i = 0; i < scenes.Length; i++)
+        {
+            if (scenes[i].name == SceneManager.GetActiveScene().name)
+            {
+                if (scenes[i].levelType == DiscordScene.LevelType.MENU)
+                {
+                    details = $"Currently in the menus!";
+                } else
+                {
+                    string gameMode = "Arcade";
+
+                    details = $"Playing {gameMode} on {scenes[i].displayName}";
+                }
+            }
+        }
+
         //creates an instance of discord
         discord = new Discord.Discord(839323469808009246, (System.UInt64)Discord.CreateFlags.Default);
         //gets the activity manager
@@ -16,7 +38,7 @@ public class DiscordManager : MonoBehaviour
         var activity = new Discord.Activity
         {
             Details = "Developing the game?",
-            State = "Playing Arcade!",
+            State = details,
             Assets =
             {
                 LargeImage = "main", // Larger Image Asset Key
@@ -38,7 +60,7 @@ public class DiscordManager : MonoBehaviour
         discord.RunCallbacks();
     }
 
-    private void OnApplicationQuit()
+    void OnDisable()
     {
         //same as first one
         var activityManager = discord.GetActivityManager();
@@ -53,6 +75,7 @@ public class DiscordManager : MonoBehaviour
         //pushes changes to discord
         discord.RunCallbacks();
 
-        
+        discord.Dispose();
     }
+#endif
 }

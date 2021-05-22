@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65a85adb8c7be3438a7866260fd3ebf, type: 3}
+  m_Name: Phone
+  m_EditorClassIdentifier: 
+  StandDatas:
+  - standName: Phone Display
+    itemData: {fileID: 11400000, guid: b5e514e41bc4af64c970af5b3153b276, type: 2}
+    sceneName: stage01
+    maxItemsInPlay: 3
+    maxStock: 7
+    maxRestockTime: 20
+    minRestockTime: 12
+    rotData:
+    - sprite: {fileID: -7768472063003065605, guid: 8834fb3fb1a2c0143b3bcf05ccee2d34,
+        type: 3}
+      aimColl: {x: 0.9, y: 4}
+      physColl: {x: 0.9, y: 3.5}
+    - sprite: {fileID: -6135826040202822110, guid: 8834fb3fb1a2c0143b3bcf05ccee2d34,
+        type: 3}
+      aimColl: {x: 4, y: 1.7}
+      physColl: {x: 4, y: 0.75}

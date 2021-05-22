@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class itemAccept : MonoBehaviour
 {
+    public int id;
+
     public GameObject Karen;
     public GameObject itemPrefab;
 
@@ -21,12 +23,14 @@ public class itemAccept : MonoBehaviour
     public float time;
     public TextMeshProUGUI itemName;
     public string ItemName;
+    public int spriteID;
 
     void Awake()
     {
+        items = GameObject.Find("GameManager").GetComponent<GameManager>().avaliableItems;
         rm = GameObject.Find("Rating Manager").GetComponent<ratingManager>();
 
-        GetRandomItem();
+        StartCoroutine("InnitUI");
     }
 
     void FixedUpdate()
@@ -36,12 +40,19 @@ public class itemAccept : MonoBehaviour
 
         time -= Time.fixedDeltaTime;
 
-        timeTex.text = Mathf.FloorToInt(time).ToString();
+        if(timeTex != null)
+        {
+            timeTex.text = Mathf.FloorToInt(time).ToString();
+        } else
+        {
+            return;
+        }
+            
 
         if (time < 0)
         {
             Debug.Log("Out of time!");
-            Wrong(false);
+            Wrong();
         }
     }
 
@@ -59,20 +70,20 @@ public class itemAccept : MonoBehaviour
                 Destroy(other.gameObject);
             } else
             {
-                Wrong(true);
+                Wrong();
                 Debug.Log("Wrong Item!");
                 Destroy(other.gameObject);
             }
         }
     }
 
-    void Wrong(bool spawnItem)
+    void Wrong()
     {
         Instantiate(wrongEffectPrefab, transform.position, Quaternion.identity);
         rm.ChangeRating(false, selectedItem);
         rm.ChangeScore(false, selectedItem);
-        if (spawnItem)
-        { RespawnItem(); } else { Destroy(Karen); }       
+        rm.RemoveUISpot(true, id);
+        Destroy(Karen);
     }
 
     void Correct()
@@ -80,25 +91,7 @@ public class itemAccept : MonoBehaviour
         Instantiate(correctEffectPrefab, transform.position, Quaternion.identity);
         rm.ChangeRating(true, selectedItem);
         rm.ChangeScore(true, selectedItem);
-        RespawnItem();
-    }
-
-    void RespawnItem()
-    {
-        Vector3 itemPos = Vector3.zero;
-
-        for (int i = 0; i < selectedItem.scene.Length; i++)
-        {
-            if (selectedItem.scene[i].sceneName == SceneManager.GetActiveScene().name)
-            {
-                itemPos = selectedItem.scene[i].spawnPos;
-            }
-        }
-
-        GameObject item = Instantiate(itemPrefab, itemPos, Quaternion.identity);
-        item.transform.Find("ItemAim").GetComponent<product>().itemData = selectedItem;
-        item.transform.Find("ItemAim").GetComponent<product>().InitializeData();
-
+        rm.RemoveUISpot(false, id);
         Destroy(Karen);
     }
 
@@ -107,19 +100,6 @@ public class itemAccept : MonoBehaviour
         int rng = Random.Range(0, items.Length);
 
         selectedItem = items[rng];
-
-        bool isAvaliable = false;
-
-        for (int i = 0; i < selectedItem.scene.Length; i++)
-        {
-            if (selectedItem.scene[i].sceneName == SceneManager.GetActiveScene().name)
-            {
-                isAvaliable = true;
-            }
-        }
-
-        if (!isAvaliable)
-        { GetRandomItem(); return; }
 
         itemName.text = selectedItem.itemName;
         ItemName = selectedItem.itemName;
@@ -131,5 +111,24 @@ public class itemAccept : MonoBehaviour
                 time = selectedItem.scene[i].time;
             }
         }
+
+        if (SceneManager.GetActiveScene().name == "tl1")
+        {
+            time = selectedItem.scene[0].time;
+        }
+    }
+
+    IEnumerator InnitUI()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        Debug.Log(Karen.GetComponent<karen>().id);
+        id = Karen.GetComponent<karen>().id;
+
+        rm.RegisterUISpot(id, Karen.GetComponent<karen>().spriteID);
+        timeTex = rm.slots[id].timer;
+        itemName = rm.slots[id].itemName;
+
+        GetRandomItem();
     }
 }

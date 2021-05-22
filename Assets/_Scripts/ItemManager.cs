@@ -74,13 +74,11 @@ public class ItemManager : MonoBehaviour
 
     void Aim(Vector2 pos, bool isMouse, bool isTouch)
     {
-        Debug.Log("AIM TICK! IS MOUSE?: " + isMouse);
         if (isTouch)
         {
             if (joystick.Direction == Vector2.zero)
                 return;
             aimDir = joystick.Direction;
-            Debug.Log("TOUCH AIM TICK!");
         } else
         {
             aimDir = pos;
@@ -98,10 +96,10 @@ public class ItemManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, aimDist, AimMask);
 
         if (holding)
-        { Debug.Log("Holding!"); currentHold.holding = false; currentHold = null; holding = false; return; }
+        { currentHold.holding = false; currentHold = null; holding = false; return; }
 
         if (hit.collider == null)
-        { Debug.Log("Missed!"); return; }
+        { return; }
 
         if (hit.collider.GetComponent<product>() != null)
         {
@@ -122,8 +120,6 @@ public class ItemManager : MonoBehaviour
         p.holding = true;
         holding = true;
         currentHold = p;
-
-        Debug.Log("Attempting to pickup: " + p.itemName);
     }
 
     void OnEnable()

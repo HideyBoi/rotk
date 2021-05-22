@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using GameJolt;
 using UnityEngine.SceneManagement;
@@ -11,12 +12,18 @@ public class ratingManager : MonoBehaviour
     public GameObject notice;
     public float score;
     public float HighScore;
+    public Sprite emptyPortrait;
+    public Sprite[] portraits;
     public TextMeshProUGUI HS;
     public TextMeshProUGUI S;
+    public TextMeshProUGUI gameoverText;
+    public KarenStatusSlot[] slots;
     [TextArea]
     public string ratingGameover;
     [TextArea]
     public string robberGameover;
+    [TextArea]
+    public string quotaGameover;
 
 
     void Update()
@@ -82,7 +89,7 @@ public class ratingManager : MonoBehaviour
     {
         notice.SetActive(true);
 
-        string reasonForGameover;
+        string reasonForGameover = "[NO ENTRY FOR SPECIFIED GAMEOVER ID!]";
 
         switch (reason)
         {
@@ -92,11 +99,26 @@ public class ratingManager : MonoBehaviour
             case 1:
                 reasonForGameover = robberGameover;
                 break;
+            case 2:
+                reasonForGameover = quotaGameover;
+                break;
         }
 
-        //set gameover text
+        gameoverText.text = reasonForGameover;
 
         GameObject player = GameObject.Find("Player");
         Destroy(player);
+    }
+
+    public void RemoveUISpot(bool isBadReason, int karenId)
+    {
+        slots[karenId].portrait.sprite = emptyPortrait;
+        slots[karenId].itemName.text = "-";
+        slots[karenId].timer.text = "-";
+    }
+
+    public void RegisterUISpot(int karenId, int spriteId)
+    {
+        slots[karenId].portrait.sprite = portraits[spriteId];
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   - standName: Alcohol Stand
     itemData: {fileID: 11400000, guid: 277597211dbd1e543abd4061799154b1, type: 2}
     sceneName: stage01
-    maxItemsInPlay: 100000
+    maxItemsInPlay: 5
     maxStock: 10
     maxRestockTime: 10
     minRestockTime: 6

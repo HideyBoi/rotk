@@ -10,4 +10,5 @@ public class SceneData : ScriptableObject
     public string displayName;
     [Header("Game and systems")]
     public string sceneName;
+    public Item[] items;
 }

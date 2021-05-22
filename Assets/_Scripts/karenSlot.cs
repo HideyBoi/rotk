@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class karenSlot : MonoBehaviour
 {
-    
+    public int id;
+
     public GameObject karenPrefab; 
-    public GameObject karen;
+    public GameObject Karen;
 
     public float karenTime;
 
@@ -17,22 +18,25 @@ public class karenSlot : MonoBehaviour
 
     void Start()
     {
-        karen = Instantiate(karenPrefab, transform.position, transform.rotation);
+        karenTime = Random.Range(minTime, maxTime);
+        isTimeSet = true;
     }
     
     void Update()
     {
         karenTime -= Time.deltaTime;
 
-        if (karen == null && karenTime < 0 && !isTimeSet)
+        if (Karen == null && karenTime < 0 && !isTimeSet)
         {
             karenTime = Random.Range(minTime, maxTime);
             isTimeSet = true;
         }
 
-        if (karen == null && karenTime < 0 && isTimeSet)
+        if (Karen == null && karenTime < 0 && isTimeSet)
         {
-            karen = Instantiate(karenPrefab, transform.position, transform.rotation);
+            Karen = Instantiate(karenPrefab, transform.position, transform.rotation);
+            Karen.GetComponent<karen>().id = id;
+            Debug.Log(Karen.GetComponent<karen>());
             isTimeSet = false;
         }
         

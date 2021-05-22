@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65a85adb8c7be3438a7866260fd3ebf, type: 3}
+  m_Name: Cereal
+  m_EditorClassIdentifier: 
+  StandDatas:
+  - standName: Cereal (Not)Refrigerator
+    itemData: {fileID: 11400000, guid: 6f66f7db922b404479397f8dfcf13fa7, type: 2}
+    sceneName: stage01
+    maxItemsInPlay: 5
+    maxStock: 8
+    maxRestockTime: 8
+    minRestockTime: 4
+    rotData:
+    - sprite: {fileID: 2132934263568953677, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}
+    - sprite: {fileID: 5159917862035812548, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}
+    - sprite: {fileID: -8599297404607315806, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}
+    - sprite: {fileID: -5245772312160291167, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}

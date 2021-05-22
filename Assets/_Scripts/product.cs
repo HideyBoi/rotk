@@ -68,6 +68,12 @@ public class product : MonoBehaviour
             }
         }
 
+        if (SceneManager.GetActiveScene().name == "tl1")
+        {
+            sprite.sprite = itemData.scene[0].itemSprite;
+        }
+
+
         itemNameText.text = itemData.itemName;
     }
 
