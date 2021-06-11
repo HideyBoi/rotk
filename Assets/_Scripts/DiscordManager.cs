@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DiscordManager : MonoBehaviour
 {
-#if UNITY_WINDOWS
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
     private Discord.Discord discord;
 
     public DiscordScene[] scenes;
@@ -35,9 +35,15 @@ public class DiscordManager : MonoBehaviour
         //gets the activity manager
         var activityManager = discord.GetActivityManager();
         //creates an activity
+        string det = "Playing version: " + Application.version;
+#if UNITY_EDITOR_WIN
+        det = "Developing the game!";
+        Debug.Log("Version : " + Application.version);
+#endif
+
         var activity = new Discord.Activity
         {
-            Details = "Developing the game?",
+            Details = det,
             State = details,
             Assets =
             {

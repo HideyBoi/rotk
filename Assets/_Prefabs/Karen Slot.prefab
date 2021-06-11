@@ -47,7 +47,9 @@ MonoBehaviour:
   id: 0
   karenPrefab: {fileID: 6009152376307941087, guid: fb480ccd336570a42b21609786d86242,
     type: 3}
-  karen: {fileID: 0}
+  robberPrefab: {fileID: 4548950093273912136, guid: 30465d6a743178d4da91c1899fce17a4,
+    type: 3}
+  Karen: {fileID: 0}
   karenTime: 0
   maxTime: 10
   minTime: 5

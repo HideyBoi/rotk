@@ -312,6 +312,7 @@ MonoBehaviour:
   spriteGameO: {fileID: 8337213874533479767}
   Hand: {fileID: 0}
   holding: 0
+  so: {fileID: 2054539560874269851}
   itemName: namenotfound
   coll: {fileID: 2822858524165675426}
   aimColl: {fileID: 1679731466349136808}
@@ -470,8 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171d004b52aca044fadd448e76be20b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 6114763548695835712}
   onlyOnce: 0
+  isBeingHeld: 0
 --- !u!1 &4462102119601748068
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,8 +646,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Essential Oils
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64f73e1a08cab6646a45b9403b250838, type: 2}
-  m_sharedMaterial: {fileID: -2913993766852467928, guid: 64f73e1a08cab6646a45b9403b250838,
+  m_fontAsset: {fileID: 11400000, guid: de27073d61d5d5b4788323468698ae44, type: 2}
+  m_sharedMaterial: {fileID: -1336078203336396165, guid: de27073d61d5d5b4788323468698ae44,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -671,8 +672,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
-  m_fontSizeBase: 0.2
+  m_fontSize: 0.35
+  m_fontSizeBase: 0.35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

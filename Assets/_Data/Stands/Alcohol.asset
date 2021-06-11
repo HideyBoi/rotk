@@ -37,3 +37,27 @@ MonoBehaviour:
         type: 3}
       aimColl: {x: 1, y: 5}
       physColl: {x: 1, y: 4}
+  - standName: Alcohol Stand
+    itemData: {fileID: 11400000, guid: 277597211dbd1e543abd4061799154b1, type: 2}
+    sceneName: stage02
+    maxItemsInPlay: 5
+    maxStock: 10
+    maxRestockTime: 10
+    minRestockTime: 6
+    rotData:
+    - sprite: {fileID: 641074583683131594, guid: 76178d3792221e547bda0a664a38422b,
+        type: 3}
+      aimColl: {x: 4, y: 1.8}
+      physColl: {x: 4, y: 0.7}
+    - sprite: {fileID: -3956913012304963039, guid: 76178d3792221e547bda0a664a38422b,
+        type: 3}
+      aimColl: {x: 1, y: 5}
+      physColl: {x: 1, y: 4}
+    - sprite: {fileID: -256353374702489782, guid: 76178d3792221e547bda0a664a38422b,
+        type: 3}
+      aimColl: {x: 4, y: 1.8}
+      physColl: {x: 4, y: 0.7}
+    - sprite: {fileID: -7492410408525739922, guid: 76178d3792221e547bda0a664a38422b,
+        type: 3}
+      aimColl: {x: 1, y: 5}
+      physColl: {x: 1, y: 4}

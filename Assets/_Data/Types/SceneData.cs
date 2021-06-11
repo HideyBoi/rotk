@@ -11,4 +11,11 @@ public class SceneData : ScriptableObject
     [Header("Game and systems")]
     public string sceneName;
     public Item[] items;
+    public AudioClip music;
+    public float maxKarenSpawnTime;
+    public float minKarenSpawnTime;
+    public float maxQuotaTime;
+    public float minQuotaTime;
+    public int maxQuota;
+    public int minQuota;
 }

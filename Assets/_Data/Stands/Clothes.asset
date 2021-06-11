@@ -29,3 +29,19 @@ MonoBehaviour:
         type: 3}
       aimColl: {x: 1.35, y: 4}
       physColl: {x: 1.35, y: 3.2}
+  - standName: Cothes Rack
+    itemData: {fileID: 11400000, guid: 8850bce575185fa479b6b4d4fc1f36b9, type: 2}
+    sceneName: stage02
+    maxItemsInPlay: 5
+    maxStock: 10
+    maxRestockTime: 15
+    minRestockTime: 8
+    rotData:
+    - sprite: {fileID: -5222580336317718337, guid: b0ea83280abadfe4792ad50f6f735fde,
+        type: 3}
+      aimColl: {x: 4, y: 1.85}
+      physColl: {x: 4, y: 1.4}
+    - sprite: {fileID: -5070638607168240041, guid: b0ea83280abadfe4792ad50f6f735fde,
+        type: 3}
+      aimColl: {x: 1.35, y: 4}
+      physColl: {x: 1.35, y: 3.2}

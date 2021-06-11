@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9badd6626894dc459f92a91d0bd95fa, type: 3}
   m_Name: GJAPISettings
   m_EditorClassIdentifier: 
-  gameId: 0
-  privateKey: 
+  gameId: 621012
+  privateKey: fba03c6ba1851a9753ea4e11492e5ad4
   timeout: 10
   autoPing: 1
-  autoSignInOutMessage: 0
+  autoSignInOutMessage: 1
   signInMessage: Signed in as '{0}'
   signOutMessage: Signed out
   useCaching: 1
-  encryptionKey: "$5?rbv=T5\xA7MPcoT3"
+  encryptionKey: sHpk=H7i&pfI4Spl
   logLevel: 1
   secretTrophies: 
   autoConnect: 0

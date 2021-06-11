@@ -24,3 +24,14 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: a77331eb00e069e45b34783c4f8d0c76, type: 3}
       aimColl: {x: 2, y: 2}
       physColl: {x: 2, y: 0.5}
+  - standName: Essential Oils
+    itemData: {fileID: 11400000, guid: d5d4a4c515bcf1e4c8eb360a3b259eff, type: 2}
+    sceneName: stage02
+    maxItemsInPlay: 5
+    maxStock: 5
+    maxRestockTime: 5
+    minRestockTime: 3
+    rotData:
+    - sprite: {fileID: 21300000, guid: a77331eb00e069e45b34783c4f8d0c76, type: 3}
+      aimColl: {x: 2, y: 2}
+      physColl: {x: 2, y: 0.5}

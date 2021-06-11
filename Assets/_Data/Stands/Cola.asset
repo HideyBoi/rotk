@@ -37,3 +37,27 @@ MonoBehaviour:
         type: 3}
       aimColl: {x: 2, y: 4}
       physColl: {x: 2, y: 1}
+  - standName: Cola Refrigerator
+    itemData: {fileID: 11400000, guid: 37a11297821383d479bb4d772c1ac6fd, type: 2}
+    sceneName: stage02
+    maxItemsInPlay: 5
+    maxStock: 20
+    maxRestockTime: 15
+    minRestockTime: 10
+    rotData:
+    - sprite: {fileID: 2132934263568953677, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}
+    - sprite: {fileID: 5159917862035812548, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}
+    - sprite: {fileID: -8599297404607315806, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}
+    - sprite: {fileID: -5245772312160291167, guid: 181f8ce7fd4b59343981e581891883b7,
+        type: 3}
+      aimColl: {x: 2, y: 4}
+      physColl: {x: 2, y: 1}

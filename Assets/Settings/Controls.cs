@@ -49,6 +49,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""901f9f70-339d-4a64-a036-858e0d2bb13a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -161,6 +169,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""AimGamepad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ab4d959-94d4-404a-95c1-c77a5bc99b5e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00e2f927-57cd-4492-84a8-dfd72dc98d37"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -212,6 +242,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Pickup = m_Player.FindAction("Pickup", throwIfNotFound: true);
         m_Player_AimPointer = m_Player.FindAction("AimPointer", throwIfNotFound: true);
         m_Player_AimGamepad = m_Player.FindAction("AimGamepad", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -265,6 +296,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Pickup;
     private readonly InputAction m_Player_AimPointer;
     private readonly InputAction m_Player_AimGamepad;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -273,6 +305,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Pickup => m_Wrapper.m_Player_Pickup;
         public InputAction @AimPointer => m_Wrapper.m_Player_AimPointer;
         public InputAction @AimGamepad => m_Wrapper.m_Player_AimGamepad;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +327,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @AimGamepad.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimGamepad;
                 @AimGamepad.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimGamepad;
                 @AimGamepad.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAimGamepad;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -310,6 +346,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @AimGamepad.started += instance.OnAimGamepad;
                 @AimGamepad.performed += instance.OnAimGamepad;
                 @AimGamepad.canceled += instance.OnAimGamepad;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -347,5 +386,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnPickup(InputAction.CallbackContext context);
         void OnAimPointer(InputAction.CallbackContext context);
         void OnAimGamepad(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

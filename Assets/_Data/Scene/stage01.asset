@@ -26,3 +26,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d694c8ca98f8804bb6390e0ce82dc65, type: 2}
   - {fileID: 11400000, guid: b5e514e41bc4af64c970af5b3153b276, type: 2}
   - {fileID: 11400000, guid: 92ef18b4633ac524e859a28e77639157, type: 2}
+  music: {fileID: 8300000, guid: 07ad62ac975ecd8449eb47b47d9bebd5, type: 3}
+  maxKarenSpawnTime: 15
+  minKarenSpawnTime: 10
+  maxQuotaTime: 180
+  minQuotaTime: 162
+  maxQuota: 20
+  minQuota: 10

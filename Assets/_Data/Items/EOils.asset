@@ -22,3 +22,9 @@ MonoBehaviour:
     time: 15
     score: 3
     incorrectScore: 5
+  - itemSprite: {fileID: 21300000, guid: 80a5188ba2b68354981cc7dc726be4f3, type: 3}
+    sceneName: stage02
+    spawnPos: {x: 9, y: 3.5, z: 0}
+    time: 30
+    score: 3
+    incorrectScore: 5

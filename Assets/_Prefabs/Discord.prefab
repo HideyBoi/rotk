@@ -50,5 +50,6 @@ MonoBehaviour:
   - name: stage01
     displayName: Steve's Market
     levelType: 1
-  inGameText: Playing {gameMode} on {scenes[i].displayName}
-  inMenuText: Currently in the menus! [test]
+  - name: stage02
+    displayName: Rob's Convenient Store
+    levelType: 1

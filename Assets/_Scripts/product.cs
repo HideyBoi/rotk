@@ -16,6 +16,7 @@ public class product : MonoBehaviour
     public Transform spriteGameO;
     public Transform Hand;
     public bool holding;
+    public SpriteOrder so;
 
     [Header("Item Data")]
     public string itemName;
@@ -46,10 +47,13 @@ public class product : MonoBehaviour
             transform.parent.position = Hand.position;
             coll.enabled = false;
             aimColl.enabled = false;
+            so.isBeingHeld = true;
+            so.transform.position = new Vector3(Hand.position.x, Hand.position.y, Hand.parent.position.z);
         } else
         {
             coll.enabled = true;
             aimColl.enabled = true;
+            so.isBeingHeld = false;
         }
     }
 

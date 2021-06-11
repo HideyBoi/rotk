@@ -39,12 +39,17 @@ public class Stand : MonoBehaviour
             currentRestockTime -= Time.fixedDeltaTime;
             restockingProgressGUI.value = currentRestockTime;
             restockingRemainingTimeGUI.text = Mathf.Floor(currentRestockTime).ToString();
+
+            restockingProgressGUI.gameObject.SetActive(true);
+            restockingRemainingTimeGUI.gameObject.SetActive(true);
             if (currentRestockTime < 0)
             {
                 currentStock = standData.maxStock;
                 isRestocking = false;
                 restockingProgressGUI.value = 0;
                 restockingRemainingTimeGUI.text = "0";
+                restockingProgressGUI.gameObject.SetActive(false);
+                restockingRemainingTimeGUI.gameObject.SetActive(false);
             }
         }
     }

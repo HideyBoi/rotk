@@ -91,7 +91,9 @@ public class itemAccept : MonoBehaviour
         Instantiate(correctEffectPrefab, transform.position, Quaternion.identity);
         rm.ChangeRating(true, selectedItem);
         rm.ChangeScore(true, selectedItem);
+        rm.ChangeQuota();
         rm.RemoveUISpot(false, id);
+        rm.KarensServed++;
         Destroy(Karen);
     }
 

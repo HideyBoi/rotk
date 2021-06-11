@@ -24,3 +24,14 @@ MonoBehaviour:
     - sprite: {fileID: 21300000, guid: ffde56943dec8f34890d2c7678d3bda0, type: 3}
       aimColl: {x: 2, y: 2}
       physColl: {x: 2, y: 0.5}
+  - standName: Perfume
+    itemData: {fileID: 11400000, guid: 9d694c8ca98f8804bb6390e0ce82dc65, type: 2}
+    sceneName: stage02
+    maxItemsInPlay: 5
+    maxStock: 5
+    maxRestockTime: 5
+    minRestockTime: 3
+    rotData:
+    - sprite: {fileID: 21300000, guid: ffde56943dec8f34890d2c7678d3bda0, type: 3}
+      aimColl: {x: 2, y: 2}
+      physColl: {x: 2, y: 0.5}

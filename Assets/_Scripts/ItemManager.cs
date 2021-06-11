@@ -9,12 +9,14 @@ public class ItemManager : MonoBehaviour
     public Vector2 aimDir;
     public Joystick joystick;
     public GameObject button;
+    public GameObject touchPauseButton;
     public float aimDist = Mathf.Infinity;
     public LayerMask AimMask;
 
     public GameObject pHand;
 
     public bool holding;
+    public bool paused;
     public product currentHold;
     public product lastP;
     public product p;
@@ -28,6 +30,7 @@ public class ItemManager : MonoBehaviour
         #if UNITY_ANDROID
             joystick.gameObject.SetActive(true);
             button.SetActive(true);
+            touchPauseButton.SetActive(true);
             Aim(Vector2.zero, false, true);
         #endif
 
@@ -93,6 +96,9 @@ public class ItemManager : MonoBehaviour
 
     public void Pickup()
     {
+        if (paused)
+            return;
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, aimDir, aimDist, AimMask);
 
         if (holding)
@@ -108,7 +114,6 @@ public class ItemManager : MonoBehaviour
         }
         else
         {
-            product p = hit.collider.GetComponent<product>();
             Stand s = hit.collider.GetComponent<Stand>();
             s.Interact(this);
         }    

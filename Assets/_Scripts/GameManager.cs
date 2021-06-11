@@ -12,8 +12,21 @@ public class GameManager : MonoBehaviour
 
     public GameObject itemPrefab;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         avaliableItems = currentStage.items;
+
+        audioSource.volume = PlayerPrefs.GetFloat("MUSIC_VOLUME");
+
+        audioSource.clip = currentStage.music;
+
+        audioSource.Play();
+    }
+
+    public void ChangeVol()
+    {
+        audioSource.volume = PlayerPrefs.GetFloat("MUSIC_VOLUME");
     }
 }

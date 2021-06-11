@@ -20,5 +20,11 @@ MonoBehaviour:
     sceneName: stage01
     spawnPos: {x: -16.75, y: 1.25, z: 0}
     time: 15
-    score: 3
+    score: 2
+    incorrectScore: 4
+  - itemSprite: {fileID: 21300000, guid: d4d92583ec4be8243b5646a7db9fb8ca, type: 3}
+    sceneName: stage02
+    spawnPos: {x: -16.75, y: 1.25, z: 0}
+    time: 25
+    score: 2
     incorrectScore: 4
